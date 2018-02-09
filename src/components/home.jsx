@@ -4,13 +4,14 @@ import React, {Component} from 'react';
 import Header from './header';
 import Inventory from './inventory';
 import Order from './order';
-import Landing from './landing'
 
 //css
 import '../styles/app.css'
 import '../styles/header.css'
 import '../styles/order.css'
 import '../styles/inventory.css'
+
+
 class Home extends Component {
   render() {
     return (
