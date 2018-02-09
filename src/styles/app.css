@@ -1,2 +1,7 @@
 body {
-  color: red; }
+  margin: 0;
+  padding: 0; }
+
+.col {
+  border: 4px double black;
+  height: 600px; }
