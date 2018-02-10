@@ -6,7 +6,7 @@ import Inventory from './inventory';
 import Order from './order';
 
 //css
-import '../styles/app.css'
+import '../styles/home.css'
 import '../styles/header.css'
 import '../styles/order.css'
 import '../styles/inventory.css'

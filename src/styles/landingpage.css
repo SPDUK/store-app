@@ -1,0 +1,18 @@
+.landing {
+  text-align: center;
+  position: relative;
+  height: 100%;
+  width: 100%; }
+
+.storesearch {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5%;
+  text-align: center;
+  padding: 20px;
+  border: 3px solid black; }
+  .storesearch input {
+    border: 2px solid black;
+    width: 315px;
+    text-align: center; }
