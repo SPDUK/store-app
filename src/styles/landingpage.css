@@ -15,4 +15,5 @@
   .storesearch input {
     border: 2px solid black;
     width: 315px;
-    text-align: center; }
+    text-align: center;
+    font-size: 1.3em; }
