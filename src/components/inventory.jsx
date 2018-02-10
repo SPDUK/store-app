@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import AddFishForm from './addfishform';
 
 class Inventory extends Component {
   render() {
@@ -6,6 +7,7 @@ class Inventory extends Component {
       <div className="hi">
         <div className="">
           <h1>Inventory</h1>
+          <AddFishForm />
         </div>
       </div>
     );

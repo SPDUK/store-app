@@ -5,6 +5,7 @@ import Landing from './components/landing';
 import Home from './components/home'
 import NotFound from './components/notfound';
 
+//not sure if props on landing is needed.
 
 
 export default () => (
