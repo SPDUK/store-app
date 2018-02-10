@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-
+import {withRouter} from "react-router-dom";
+import { browserHistory } from 'react-router'
 //css
 import '../styles/landingpage.css';
 //helper
@@ -11,14 +12,21 @@ let storeId = null;
 
 
 class Landing extends Component {
+constructor(props){
+  super(props);
+  this.goToStore = this.goToStore.bind(this);
+}
 
-  goToStore(event) {
-    event.preventDefault();
-    //get the dtata from input
-    // var StoreID = this.refs.storeId.value;
-    console.log(storeId.value);
-    //transition from Landing to Home
-  }
+
+
+
+goToStore(event, props){
+  event.preventDefault();
+  var storeID = storeId.value;
+  this.props.history.push('/store/' + storeID);
+}
+
+
   
   render() {
     return (
@@ -40,4 +48,4 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+export default withRouter(Landing);
