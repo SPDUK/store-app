@@ -4,6 +4,9 @@ import React, {Component} from 'react';
 import Header from './header';
 import Inventory from './inventory';
 import Order from './order';
+import Fish from  './fish';
+
+//samplefish
 import sampleFishes from '../samplefishes'
 
 //css
@@ -31,7 +34,7 @@ class Home extends Component {
     //update state
     this.state.fishes['fish-' + timestamp] = fish;
     //set state
-    this.setState({ fishes: this.state.fishes });
+    this.setState({ fishes: this.state.fishes});
   }
 
   loadSamples() {
@@ -40,7 +43,7 @@ class Home extends Component {
     });
   }
   renderFish(key) {
-    return<li>renderfish key : {key}</li>
+    return <Fish key={key} index={key} details={this.state.fishes[key]} />
   }
   
   render() {

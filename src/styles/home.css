@@ -4,4 +4,7 @@ body {
 
 .col {
   border: 4px double black;
-  height: 600px; }
+  height: 900px; }
+
+ul {
+  list-style-type: none; }
