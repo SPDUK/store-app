@@ -22,6 +22,7 @@ class Home extends Component {
     this.addFish = this.addFish.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
     this.renderFish = this.renderFish.bind(this);
+    this.addToOrder = this.addToOrder.bind(this);
     this.state = {
       fishes : {},
       order : {}
@@ -43,7 +44,12 @@ class Home extends Component {
     });
   }
   renderFish(key) {
-    return <Fish key={key} index={key} details={this.state.fishes[key]} />
+    return <Fish addToOrder={this.addToOrder} key={key} index={key} details={this.state.fishes[key]} />
+  }
+
+  addToOrder(key) {
+    this.state.order[key] = this.state.order[key] +1 || 1;
+    this.setState({ order: this.state.order });
   }
   
   render() {
