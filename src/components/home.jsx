@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import Header from './header';
 import Inventory from './inventory';
 import Order from './order';
+import sampleFishes from '../samplefishes'
 
 //css
 import '../styles/home.css'
@@ -13,6 +14,35 @@ import '../styles/inventory.css'
 
 
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.addFish = this.addFish.bind(this);
+    this.loadSamples = this.loadSamples.bind(this);
+    this.renderFish = this.renderFish.bind(this);
+    this.state = {
+      fishes : {},
+      order : {}
+    }
+  }
+  
+  addFish(fish, props) {
+    var timestamp = (new Date()).getTime();
+  
+    //update state
+    this.state.fishes['fish-' + timestamp] = fish;
+    //set state
+    this.setState({ fishes: this.state.fishes });
+  }
+
+  loadSamples() {
+    this.setState({
+      fishes : sampleFishes
+    });
+  }
+  renderFish(key) {
+    return<li>renderfish key : {key}</li>
+  }
+  
   render() {
     return (
       <div className="home">
@@ -20,12 +50,15 @@ class Home extends Component {
           <div className="row">
             <div className="col col-md-5 col-sm-6">
               <Header tagline="Fresh Seafood"/>
+              <ul className="list-of-fishes">
+              {Object.keys(this.state.fishes).map(this.renderFish)}
+              </ul>
             </div>
             <div className="col col-md-3 col-sm-6">
               <Order/>
             </div>
             <div className="col col-md-4 col-sm-12">
-              <Inventory/>
+              <Inventory addFish={this.addFish} loadSamples={this.loadSamples}/>
             </div>
           </div>
         </div>
@@ -35,3 +68,6 @@ class Home extends Component {
 }
 
 export default Home;
+
+
+
