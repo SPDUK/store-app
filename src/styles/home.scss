@@ -1,3 +1,7 @@
+html {
+    height: 1200px;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -10,4 +14,11 @@ body {
 
 ul {
     list-style-type: none;
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 300px !important;
 }

@@ -3,7 +3,6 @@ import '../styles/fish.css'
 var h = require ('../scripts/helpers');
 
 
-
 class Fish extends Component {
 constructor() {
   super()
@@ -18,6 +17,7 @@ this.props.addToOrder(this.props.index)
   const isAvailable = (this.props.details.status === 'available' ? true : false);
   var buttonText = (isAvailable ? 'Add To Order' : 'Sold Out');
     return (
+      <div className="wrapper">
       <li className="fishlist">
           <img className="img-fluid" id="fishimg" src={this.props.details.image}alt={this.props.details.name}/>
           <h3 className="fishname">
@@ -27,8 +27,9 @@ this.props.addToOrder(this.props.index)
           <span>{this.props.details.desc}</span>
           <p></p>
           <button onClick={this.onButtonClick} className="btn btn-outline-dark" disabled={!isAvailable}>{buttonText}</button>
-
       </li>
+      </div>
+
     );
   }
 }

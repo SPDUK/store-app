@@ -14,6 +14,7 @@ import '../styles/home.css'
 import '../styles/header.css'
 import '../styles/order.css'
 import '../styles/inventory.css'
+import '../styles/fish.css'
 
 
 class Home extends Component {
@@ -44,7 +45,7 @@ class Home extends Component {
     });
   }
   renderFish(key) {
-    return <Fish addToOrder={this.addToOrder} key={key} index={key} details={this.state.fishes[key]} />
+    return<Fish addToOrder={this.addToOrder} key={key} index={key} details={this.state.fishes[key]} />
   }
 
   addToOrder(key) {
@@ -59,9 +60,11 @@ class Home extends Component {
           <div className="row">
             <div className="col col-md-5 col-sm-6">
               <Header tagline="Fresh Seafood"/>
+              <div className="fishcontainer">
               <ul className="list-of-fishes">
               {Object.keys(this.state.fishes).map(this.renderFish)}
               </ul>
+              </div>
             </div>
             <div className="col col-md-3 col-sm-6">
               <Order/>
