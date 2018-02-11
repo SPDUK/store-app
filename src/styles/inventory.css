@@ -1,15 +1,23 @@
-#fishinventory {
+#inventory {
   width: 100%;
-  border-bottom: 3px double black;
+  border-bottom: 5px double black;
   margin-top: 10px;
-  margin-bottom: 10px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative; }
-  #fishinventory .form-control {
-    padding: 5px; }
+  position: relative;
+  border: 2px solid black; }
+  #inventory input {
+    font-weight: 700; }
+  #inventory .form-control {
+    padding: 0px;
+    margin: 0px;
+    text-align: center; }
+  #inventory .btn {
+    border-left: none;
+    border-right: none;
+    border-bottom: none; }
 
 .fishwrapper {
   height: 770px;

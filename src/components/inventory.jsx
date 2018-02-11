@@ -23,21 +23,21 @@ class Inventory extends Component {
   renderInventory(key) {
     const fish = this.props.fishes[key];
     return (
-    <div className="">
-      <div className="container" id="fishinventory" key={key}>
+    <div className="inventorywrapper">
+      <div className="container" id="inventory" key={key}>
         <div className="row">
-          <input className="form-control col-sm-4" type="text" name="name" value={fish.name} placeholder="Fish Name" onChange={(e) => this.handleChange(e, key)} />
-          <input className="form-control col-sm-4"type="text" name="price" value={fish.price} placeholder="Fish Price"  onChange={(e) => this.handleChange(e, key)}/>
-          <select className="form-control col-sm-4"type="text" name="status" value={fish.status} placeholder="Fish Status" onChange={(e) => this.handleChange(e, key)}>
+          <input className="form-control col-sm-4 fishinventory" type="text" name="name" value={fish.name} placeholder="Fish Name" onChange={(e) => this.handleChange(e, key)} />
+          <input className="form-control col-sm-4 fishinventory"type="text" name="price" value={fish.price} placeholder="Fish Price"  onChange={(e) => this.handleChange(e, key)}/>
+          <select className="form-control col-sm-4 fishinventory"type="text" name="status" value={fish.status} placeholder="Fish Status" onChange={(e) => this.handleChange(e, key)}>
             <option value="available">Fresh!</option>
             <option value="unavailable">Sold Out!</option>
           </select>
  
 
 
-          <textarea className="col-sm-12" type="text" name="desc" value={fish.desc} placeholder="Fish Desc" onChange={(e) => this.handleChange(e, key)}></textarea>
-          <input className="col-sm-12" type="text" name="image" value={fish.image} placeholder="Fish Image" onChange={(e) => this.handleChange(e, key)}/>
-          <button className="col-sm-12 btn btn-outline-dark" onClick={() => this.props.removeFish(key)}>Remove Fish</button>
+          <textarea className="col-sm-12 fishinventory form-control" type="text" name="desc" value={fish.desc} placeholder="Fish Desc" onChange={(e) => this.handleChange(e, key)}></textarea>
+          <input className="col-sm-12 fishinventory" type="text" name="image" value={fish.image} placeholder="Fish Image" onChange={(e) => this.handleChange(e, key)}/>
+          <button className="col-sm-12 btn btn-outline-dark form-control" onClick={() => this.props.removeFish(key)}>Remove Fish</button>
       </div>
     </div>
   </div>
@@ -45,7 +45,7 @@ class Inventory extends Component {
   }
   render() {
     return (
-      <div className="hi">
+      <div className="">
         <div className="">
           <h1>Inventory</h1>
           <div className="fishwrapper">

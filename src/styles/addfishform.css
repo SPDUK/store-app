@@ -1,6 +1,6 @@
 #fishform {
-  border: 3px solid black;
-  border-bottom: none; }
+  border: 3px solid black; }
   #fishform .btn {
     border-left: none;
-    border-right: none; }
+    border-right: none;
+    margin: 0; }
