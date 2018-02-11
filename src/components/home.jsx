@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Rebase from 're-base';
 import base from '../base';
 import Catalyst from 'react-catalyst';
@@ -20,6 +21,7 @@ import '../styles/header.css'
 import '../styles/order.css'
 import '../styles/inventory.css'
 import '../styles/fish.css'
+import '../styles/animations.css'
 
 
 class Home extends Component {

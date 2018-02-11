@@ -1,0 +1,22 @@
+.order-enter {
+    transition: 0.5s;
+    transform: translateX(-120%);
+    max-height: 0;
+    padding: 0 !important;
+    &.order-enter-active {
+        transform: translateX(0);
+        max-height: 60px;
+        padding: 2rem 0 !important;
+    }
+
+}
+
+.order-leave {
+    transition: 1s;
+    opacity: 1;
+    &.order-leave-active {
+        opacity: 0;
+        // max-height: 0;
+         padding: 0;
+    }
+}

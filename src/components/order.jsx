@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+
+import '../styles/animations.css'
 
 var h = require ('../scripts/helpers');
+
 
 
 class Order extends Component {
@@ -40,15 +44,13 @@ class Order extends Component {
 
     return (
       <div className="order-wrapper">
-      <h1>Your Order</h1>
-      <ul className="order">
-      {orderIds.map(this.renderOrder)}
-      <li className="total">
-        <h3>Total:{h.formatPrice(total)}</h3>
-      </li>
-
-      </ul>
-
+        <h1>Your Order</h1>
+      <ReactCSSTransitionGroup className="order" component="ul" transitionName="order" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+         {orderIds.map(this.renderOrder)}
+          <li className="total">
+            <h3>Total:{h.formatPrice(total)}</h3>
+          </li>
+        </ReactCSSTransitionGroup>
       </div>
     );
   }
