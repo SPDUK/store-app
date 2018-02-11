@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import Rebase from 're-base';
 import base from '../base';
+import Catalyst from 'react-catalyst';
+import Reactmixin from 'react-mixin';
+
 //components
 import Header from './header';
 import Inventory from './inventory';
@@ -19,13 +22,9 @@ import '../styles/inventory.css'
 import '../styles/fish.css'
 
 
-//firebase
-// const Rebase = require ('re-base');
-// const base = Rebase.createClass('https://store-app-6619f.firebaseio.com/');
-
-
 class Home extends Component {
   constructor(props){
+  mixins: [Catalyst.LinkedStateMixin]
     super(props);
     this.addFish = this.addFish.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
@@ -76,6 +75,29 @@ class Home extends Component {
     this.state.order[key] = this.state.order[key] +1 || 1;
     this.setState({ order: this.state.order });
   }
+
+
+  addFish(fish) {
+    // update our state
+    const fishes = {...this.state.fishes};
+    // add in our new fish
+    const timestamp = Date.now();
+    fishes[`fish-${timestamp}`] = fish;
+    // set state
+    this.setState({ fishes });
+  }
+
+  updateFish = (key, updatedFish) => {
+    const fishes = {...this.state.fishes};
+    fishes[key] = updatedFish;
+    this.setState({ fishes });
+  };
+
+  removeFish = (key) => {
+    const fishes = {...this.state.fishes};
+    fishes[key] = null;
+    this.setState({ fishes });
+  };
   
   render() {
     return (
@@ -94,7 +116,7 @@ class Home extends Component {
               <Order fishes={this.state.fishes} order={this.state.order}/>
             </div>
             <div className="col col-md-4 col-sm-12">
-              <Inventory addFish={this.addFish} loadSamples={this.loadSamples}/>
+              <Inventory linkState={this.linkState} addFish={this.addFish} updateFish={this.updateFish} removeFish={this.removeFish} loadSamples={this.loadSamples}  fishes={this.state.fishes}/>
             </div>
           </div>
         </div>

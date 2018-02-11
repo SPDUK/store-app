@@ -1,0 +1,28 @@
+@import 'variables.scss';
+
+#fishinventory {
+    width: 100%;
+    border-bottom: 3px double black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    .form-control {
+        padding: 5px;
+
+    }
+}
+
+.fishwrapper {
+        height: 770px;
+        overflow: auto;
+        
+}
+
+.loadfish {
+    margin-top: 20px;
+}
