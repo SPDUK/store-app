@@ -1,0 +1,16 @@
+.order-wrapper {
+  text-align: center; }
+  .order-wrapper ul {
+    padding: 0; }
+  .order-wrapper .total {
+    border-top: 3px double black;
+    border-bottom: 3px double black;
+    padding-top: 8px; }
+  .order-wrapper .fish-order {
+    border-bottom: 2px solid black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: black;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+    .order-wrapper .fish-order p {
+      margin: 0; }

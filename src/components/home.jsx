@@ -67,7 +67,7 @@ class Home extends Component {
               </div>
             </div>
             <div className="col col-md-3 col-sm-6">
-              <Order/>
+              <Order fishes={this.state.fishes} order={this.state.order}/>
             </div>
             <div className="col col-md-4 col-sm-12">
               <Inventory addFish={this.addFish} loadSamples={this.loadSamples}/>

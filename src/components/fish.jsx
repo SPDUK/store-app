@@ -23,7 +23,7 @@ this.props.addToOrder(this.props.index)
           <h3 className="fishname">
             {this.props.details.name}
             </h3>
-            <p className="fishprice">{h.formatPrice(this.props.details.price)}</p>
+            <p className="fishprice">{h.formatPrice(this.props.details.price)} </p>
           <span>{this.props.details.desc}</span>
           <p></p>
           <button onClick={this.onButtonClick} className="btn btn-outline-dark" disabled={!isAvailable}>{buttonText}</button>
