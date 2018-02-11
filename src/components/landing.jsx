@@ -22,7 +22,7 @@ constructor(props){
 
 goToStore(event, props){
   event.preventDefault();
-  var storeID = storeId.value;
+  const storeID = storeId.value;
   this.props.history.push('/store/' + storeID);
 }
 

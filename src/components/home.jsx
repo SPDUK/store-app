@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-
+import Rebase from 're-base';
+import base from '../base';
 //components
 import Header from './header';
 import Inventory from './inventory';
 import Order from './order';
 import Fish from  './fish';
+import Landing from './landing';
 
 //samplefish
 import sampleFishes from '../samplefishes'
@@ -15,6 +17,11 @@ import '../styles/header.css'
 import '../styles/order.css'
 import '../styles/inventory.css'
 import '../styles/fish.css'
+
+
+//firebase
+// const Rebase = require ('re-base');
+// const base = Rebase.createClass('https://store-app-6619f.firebaseio.com/');
 
 
 class Home extends Component {
@@ -29,7 +36,24 @@ class Home extends Component {
       order : {}
     }
   }
-  
+
+
+  componentDidMount(props) {
+    this.ref = base.syncState(`${this.props.match.params.storeId}/fishes`,{
+      context: this,
+      state: 'fishes'
+    });
+    var localStorageRef = localStorage.getItem('order-' + this.props.match.params.storeId);
+    if(localStorageRef) {
+      this.setState({
+        order : JSON.parse(localStorageRef)
+      });
+    }
+  }
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem('order-' + this.props.match.params.storeId, JSON.stringify(nextState.order));
+  }
+
   addFish(fish, props) {
     var timestamp = (new Date()).getTime();
   
