@@ -11,14 +11,16 @@ class Order extends Component {
   renderOrder(key){
     var fish = this.props.fishes[key];
     var count = this.props.order[key];
+    var removeButton = <button className="btn btn-outline-dark btn-sm" onClick={this.props.removeFromOrder.bind(null, key)}>X</button>
 
     if(!fish) {
-      return <li key={key}> Sorry, fish no longer available!</li>
+      return <li key={key}> Sorry, fish no longer available! {removeButton}</li>
     }
     return(
     <li className="fish-order" key={key}> 
      <span className="">{count}lbs <strong>x</strong> </span> <span>{fish.name} : </span>
     <span className="">{h.formatPrice(count * fish.price)}
+    {removeButton}
     </span>
     </li>
     )

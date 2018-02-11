@@ -30,6 +30,7 @@ class Home extends Component {
     this.loadSamples = this.loadSamples.bind(this);
     this.renderFish = this.renderFish.bind(this);
     this.addToOrder = this.addToOrder.bind(this);
+    this.removeFromOrder = this.removeFromOrder.bind(this);
     this.state = {
       fishes : {},
       order : {}
@@ -98,6 +99,12 @@ class Home extends Component {
     fishes[key] = null;
     this.setState({ fishes });
   };
+
+  removeFromOrder(key) {
+    const order = {...this.state.order};
+    delete order[key];
+    this.setState({ order });
+  }
   
   render() {
     return (
@@ -113,10 +120,10 @@ class Home extends Component {
               </div>
             </div>
             <div className="col col-md-3 col-sm-6">
-              <Order fishes={this.state.fishes} order={this.state.order}/>
+              <Order removeFromOrder={this.removeFromOrder} fishes={this.state.fishes} order={this.state.order}/>
             </div>
             <div className="col col-md-4 col-sm-12">
-              <Inventory linkState={this.linkState} addFish={this.addFish} updateFish={this.updateFish} removeFish={this.removeFish} loadSamples={this.loadSamples}  fishes={this.state.fishes}/>
+              <Inventory linkState={this.linkState} addFish={this.addFish} updateFish={this.updateFish} removeFish={this.removeFish} loadSamples={this.loadSamples}  fishes={this.state.fishes} />
             </div>
           </div>
         </div>

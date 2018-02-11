@@ -1,8 +1,5 @@
 @import 'variables.scss';
-
-
 .fishlist {
-
     width: 100%;
     text-align: center;
     border-bottom: 3px double black;
@@ -12,30 +9,32 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
     span {
-       color: black;
-       text-shadow: 0 1px 2px rgba(0,0,0,0.20);
-       letter-spacing: 0.12em;
+        color: black;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
+        letter-spacing: 0.12em;
     }
 }
 
-
-    button {
-        margin-bottom: 10px;
-        &:disabled {
-            background-color:gray;
-            cursor: not-allowed;
-        }
+button {
+    margin-bottom: 10px;
+    &.btn-outline-dark {
+        width: 100%;
+        height: 25px;
+        padding: 0;
     }
+    &:disabled {
+        background-color: gray;
+        cursor: not-allowed;
+    }
+}
 
 .fishprice {
     font-size: 1.8em;
     margin-bottom: 0;
     text-decoration: underline;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.20);
-    color:black;
-    
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
+    color: black;
 }
 
 ul {
@@ -46,8 +45,8 @@ ul {
 .fishcontainer {
     height: 730px;
     overflow: auto;
-
 }
-::-webkit-scrollbar { 
-    display: none; 
+
+::-webkit-scrollbar {
+    display: none;
 }
