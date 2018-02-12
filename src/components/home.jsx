@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-import Rebase from 're-base';
 import base from '../base';
 import Catalyst from 'react-catalyst';
 import Reactmixin from 'react-mixin';
+import PropTypes from 'prop-types'
 
 //components
 import Header from './header';
 import Inventory from './inventory';
 import Order from './order';
 import Fish from  './fish';
-import Landing from './landing';
+
 
 //samplefish
 import sampleFishes from '../samplefishes'
@@ -56,14 +55,14 @@ class Home extends Component {
     localStorage.setItem('order-' + this.props.match.params.storeId, JSON.stringify(nextState.order));
   }
 
-  addFish(fish, props) {
-    var timestamp = (new Date()).getTime();
+  // addFish(fish, props) {
+  //   var timestamp = (new Date()).getTime();
   
     //update state
-    this.state.fishes['fish-' + timestamp] = fish;
-    //set state
-    this.setState({ fishes: this.state.fishes});
-  }
+  //   this.state.fishes['fish-' + timestamp] = fish;
+  //   //set state
+  //   this.setState({ fishes: this.state.fishes});
+  // }
 
   loadSamples() {
     this.setState({
@@ -114,7 +113,7 @@ class Home extends Component {
         <div className="container-fluid ">
           <div className="row">
             <div className="col col-md-5 col-sm-6">
-              <Header tagline="Fresh Seafood"/>
+              <Header tagline="Fresh Seafood Market"/>
               <div className="fishcontainer">
               <ul className="list-of-fishes">
               {Object.keys(this.state.fishes).map(this.renderFish)}
@@ -131,9 +130,25 @@ class Home extends Component {
         </div>
       </div>
     );
-  }
+  } 
 }
 
+Header.propTypes = {
+  tagline: PropTypes.string.isRequired
+}
+Inventory.propTypes = {
+  linkState : PropTypes.func.isRequired,
+  addFish : PropTypes.func.isRequired,
+  updateFish : PropTypes.func.isRequired,
+  removeFish : PropTypes.func.isRequired,
+  loadSamples : PropTypes.func.isRequired,
+  fishes :  PropTypes.object.isRequired
+}
+Order.propTypes = {
+  removeFromOrder : PropTypes.func.isRequired,
+  fishes : PropTypes.object.isRequired,
+  order : PropTypes.object.isRequired
+}
 export default Home;
 
 

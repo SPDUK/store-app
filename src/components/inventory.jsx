@@ -23,8 +23,8 @@ class Inventory extends Component {
   renderInventory(key) {
     const fish = this.props.fishes[key];
     return (
-    <div className="inventorywrapper">
-      <div className="container" id="inventory" key={key}>
+    <div className="inventorywrapper" key={key}>
+      <div className="container" id="inventory">
         <div className="row">
           <input className="form-control col-sm-4 fishinventory" type="text" name="name" value={fish.name} placeholder="Fish Name" onChange={(e) => this.handleChange(e, key)} />
           <input className="form-control col-sm-4 fishinventory"type="text" name="price" value={fish.price} placeholder="Fish Price"  onChange={(e) => this.handleChange(e, key)}/>

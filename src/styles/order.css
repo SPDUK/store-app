@@ -5,7 +5,14 @@
   .order-wrapper .total {
     border-top: 3px double black;
     border-bottom: 3px double black;
-    padding-top: 8px; }
+    padding-top: 8px;
+    width: 100%; }
+    .order-wrapper .total h3 {
+      text-align: center !important;
+      font-size: 1em; }
+      @media (min-width: 992px) {
+        .order-wrapper .total h3 {
+          font-size: 1.6em; } }
   .order-wrapper .fish-order {
     border-bottom: 2px solid black;
     padding-top: 5px;
