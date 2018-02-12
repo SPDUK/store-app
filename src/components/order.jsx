@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 import '../styles/animations.css'
 
@@ -12,6 +12,7 @@ class Order extends Component {
     super(props)
     this.renderOrder = this.renderOrder.bind(this);
   }
+
   renderOrder(key){
     var fish = this.props.fishes[key];
     var count = this.props.order[key];
@@ -22,7 +23,12 @@ class Order extends Component {
     }
     return(
     <li className="fish-order" key={key}> 
-     <span className="">{count}lbs <strong>x</strong> </span> <span>{fish.name} : </span>
+
+    <CSSTransitionGroup className="count" component="span" transitionName="count" transitionLeaveTimeout={300} transitionEnterTimeout={300}>
+     <span key={count}>{count}</span>
+     </CSSTransitionGroup>
+
+     lbs <span><strong>x</strong> </span> <span>{fish.name} : </span>
     <span className="">{h.formatPrice(count * fish.price)}
     {removeButton}
     </span>
@@ -45,12 +51,12 @@ class Order extends Component {
     return (
       <div className="order-wrapper">
         <h1>Your Order</h1>
-      <ReactCSSTransitionGroup className="order" component="ul" transitionName="order" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+      <CSSTransitionGroup className="order" component="ul" transitionName="order" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
          {orderIds.map(this.renderOrder)}
           <li className="total">
             <h3>Total:{h.formatPrice(total)}</h3>
           </li>
-        </ReactCSSTransitionGroup>
+        </CSSTransitionGroup>
       </div>
     );
   }
