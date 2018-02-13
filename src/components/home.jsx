@@ -9,6 +9,7 @@ import Header from './header';
 import Inventory from './inventory';
 import Order from './order';
 import Fish from  './fish';
+import About from './about';
 
 
 //samplefish
@@ -103,6 +104,7 @@ class Home extends Component {
   
   render() {
     return (
+      <div>
       <div className="home">
         <div className="container-fluid ">
           <div className="row">
@@ -122,6 +124,8 @@ class Home extends Component {
             </div>
           </div>
         </div>
+      </div>
+      <About />
       </div>
     );
   } 

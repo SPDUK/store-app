@@ -20,7 +20,7 @@ class Inventory extends React.Component {
     }
   }
 
-  componentDidMount(props) {
+  componentDidMount() {
       app.auth().onAuthStateChanged((user)=>{
       if(user) {
         this.authHandler(null, { user });
@@ -117,7 +117,7 @@ class Inventory extends React.Component {
   }
   render() {
     const logout = <button className="btn btn-outline-dark" onClick={this.logout}>Log Out!</button>;
-    // check if they are no logged in at all
+    // check if they are  logged in at all
     if(!this.state.uid) {
       return <div>{this.renderLogin()}</div>
     }
@@ -135,21 +135,14 @@ class Inventory extends React.Component {
       <div>
         <h1>Inventory</h1>
         {logout}
-        {Object.keys(this.props.fishes).map(this.renderInventory)}
-        <AddFishForm addFish={this.props.addFish}/>
+        <div className="fishwrapper">
+          {Object.keys(this.props.fishes).map(this.renderInventory)}
+          <AddFishForm addFish={this.props.addFish}/>
+        </div>
         <button className="btn btn-outline-dark col-sm-12 loadfish" onClick={this.props.loadSamples}>Load Sample Fishes</button>
       </div>
     )
   }
-
-  // static propTypes = {
-  //   fishes: React.PropTypes.object.isRequired,
-  //   updateFish: React.PropTypes.func.isRequired,
-  //   removeFish: React.PropTypes.func.isRequired,
-  //   addFish: React.PropTypes.func.isRequired,
-  //   loadSamples: React.PropTypes.func.isRequired,
-  //   storeId: React.PropTypes.string.isRequired
-  // };
 }
 
 export default Inventory;

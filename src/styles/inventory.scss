@@ -31,7 +31,7 @@
 }
 
 .fishwrapper {
-        height: 770px;
+        height: 750px;
         overflow: auto;
         
 }
@@ -47,3 +47,14 @@
   .twitter {
     background-color:#1da1f2
   }
+
+
+  
+a {
+    @include absolutecenter(x);
+}
+h5 {
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.20);
+}

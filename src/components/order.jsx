@@ -56,7 +56,7 @@ class Order extends Component {
           <li className="total">
             <h3>Total:{h.formatPrice(total)}</h3>
           </li>
-        </CSSTransitionGroup>
+        </CSSTransitionGroup>      
       </div>
     );
   }
