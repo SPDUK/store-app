@@ -26,6 +26,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "dotenv": "^5.0.0",
     "firebase": "^4.9.1",
     "gh-pages": "^1.1.0",
     "re-base": "^3.2.2",

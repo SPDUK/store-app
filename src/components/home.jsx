@@ -3,7 +3,6 @@ import {base} from '../base';
 import Catalyst from 'react-catalyst';
 import reactmixin from 'react-mixin';
 import PropTypes from 'prop-types'
-
 //components
 import Header from './header';
 import Inventory from './inventory';
@@ -63,6 +62,7 @@ class Home extends Component {
     this.setState({
       fishes : sampleFishes
     });
+    console.log(process.env.API_KEY);
   }
   renderFish(key) {
     return<Fish addToOrder={this.addToOrder} key={key} index={key} details={this.state.fishes[key]} />
