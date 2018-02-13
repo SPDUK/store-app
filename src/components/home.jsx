@@ -38,7 +38,7 @@ class Home extends Component {
   }
 
 
-  componentDidMount(props) {
+  componentWillMount(props) {
     this.ref = base.syncState(`${this.props.match.params.storeId}/fishes`,{
       context: this,
       state: 'fishes'
@@ -62,7 +62,6 @@ class Home extends Component {
     this.setState({
       fishes : sampleFishes
     });
-    console.log(process.env.API_KEY);
   }
   renderFish(key) {
     return<Fish addToOrder={this.addToOrder} key={key} index={key} details={this.state.fishes[key]} />
