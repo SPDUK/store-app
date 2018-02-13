@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "autobind-decorator": "^2.1.0",
     "history": "^4.7.2",
     "node-sass-chokidar": "0.0.3",
     "prop-types": "^15.6.0",

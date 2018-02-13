@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter} from "react-router-dom";
-import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router';
 //css
 import '../styles/landingpage.css';
 //helper
@@ -16,7 +16,6 @@ constructor(props){
   super(props);
   this.goToStore = this.goToStore.bind(this);
 }
-
 
 
 

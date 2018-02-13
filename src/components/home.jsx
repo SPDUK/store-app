@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import base from '../base';
+import {base} from '../base';
 import Catalyst from 'react-catalyst';
-import Reactmixin from 'react-mixin';
+import reactmixin from 'react-mixin';
 import PropTypes from 'prop-types'
 
 //components
@@ -25,7 +25,6 @@ import '../styles/animations.css'
 
 class Home extends Component {
   constructor(props){
-  mixins: [Catalyst.LinkedStateMixin]
     super(props);
     this.addFish = this.addFish.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
@@ -55,14 +54,9 @@ class Home extends Component {
     localStorage.setItem('order-' + this.props.match.params.storeId, JSON.stringify(nextState.order));
   }
 
-  // addFish(fish, props) {
-  //   var timestamp = (new Date()).getTime();
-  
-    //update state
-  //   this.state.fishes['fish-' + timestamp] = fish;
-  //   //set state
-  //   this.setState({ fishes: this.state.fishes});
-  // }
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
 
   loadSamples() {
     this.setState({
@@ -124,7 +118,7 @@ class Home extends Component {
               <Order removeFromOrder={this.removeFromOrder} fishes={this.state.fishes} order={this.state.order}/>
             </div>
             <div className="col col-md-4 col-sm-12">
-              <Inventory linkState={this.linkState} addFish={this.addFish} updateFish={this.updateFish} removeFish={this.removeFish} loadSamples={this.loadSamples}  fishes={this.state.fishes} />
+              <Inventory linkState={this.linkState.bind(this)} addFish={this.addFish} updateFish={this.updateFish} removeFish={this.removeFish} loadSamples={this.loadSamples}  fishes={this.state.fishes} />
             </div>
           </div>
         </div>
@@ -149,6 +143,8 @@ Order.propTypes = {
   fishes : PropTypes.object.isRequired,
   order : PropTypes.object.isRequired
 }
+
+reactmixin.onClass(Home, Catalyst.LinkedStateMixin)
 export default Home;
 
 
