@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import { HashRouter, Route, Switch} from 'react-router-dom';
 
 import Landing from './components/landing';
 import Home from './components/home'
@@ -9,11 +9,11 @@ import NotFound from './components/notfound';
 
 
 export default () => (
-    <BrowserRouter>
+    <HashRouter>
         <Switch>
         <Route path="/" exact render={props =><Landing {...props}/>}/>
         <Route path="/store/:storeId" exact component={Home} />
         <Route path="*" component={NotFound} />
         </Switch>
-    </BrowserRouter>
+    </HashRouter>
 );
